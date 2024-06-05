@@ -1,35 +1,35 @@
-
-.user-post-bookmarks {
-
-	card-post {
-		min-height: 14rem;
-	}
-
-	card-post .action-bookmark {
-		
-		.card-badge {
-
-			background-color: rgba(var(--bs-white-rgb), .5);
-			border: 0;
-			fa-icon { color: var(--bs-info) }
-
-			&:hover { 
-				fa-icon { color: var(--bs-danger) }
-			}
-		}
-		
-		.card-badge-index {
-			display: none;;
-		}
-	}
-
-	.card-overlay .card-action {
-		top: 1rem;
-		transform: none;
-	}
-
-	.card-overlay .card-icon {
-		top: 1.4rem;
-		opacity: .75;
-	}
-}
+//
+//.user-post-bookmarks {
+//
+//	card-post {
+//		min-height: 14rem;
+//	}
+//
+//	card-post .action-bookmark {
+//
+//		.card-badge {
+//
+//			background-color: rgba(var(--bs-white-rgb), .5);
+//			border: 0;
+//			fa-icon { color: var(--bs-info) }
+//
+//			&:hover {
+//				fa-icon { color: var(--bs-danger) }
+//			}
+//		}
+//
+//		.card-badge-index {
+//			display: none;;
+//		}
+//	}
+//
+//	.card-overlay .card-action {
+//		top: 1rem;
+//		transform: none;
+//	}
+//
+//	.card-overlay .card-icon {
+//		top: 1.4rem;
+//		opacity: .75;
+//	}
+//}

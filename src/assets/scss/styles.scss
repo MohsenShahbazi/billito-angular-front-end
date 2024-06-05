@@ -1,48 +1,48 @@
-/**
- * Main styles
- * 
- * @copyright Intelact Solutions Ltd.
- */
-
-// bootstrap
-@import "bootswatch/dist/flatly/variables";
-@import "bootstrap/scss/bootstrap";
-@import "bootswatch/dist/flatly/bootstrap.min.css";
- // third parties
-@import 'animate.css';
-@import 'ngx-sharebuttons/themes/default';
-@import '@videogular/ngx-videogular/fonts/videogular.css';
-
-
-// custom variables
-$font-family-base: 'Open Sans';
-$font-family-header: 'Open Sans';
-$font-family-highlight: 'Open Sans';
-$app-header-height: 96px;
-$brand-height: 36px;
-$spacer-thin: calc($spacer/2);
-
-// components
-@import 'components/animations'; 
-@import 'components/brand'; 
-@import 'components/buttons'; 
-@import 'components/card'; 
-@import 'components/form'; 
-@import 'components/modal'; 
-@import 'components/nav'; 
-@import 'components/notification'; 
-@import 'components/preloader'; 
-@import 'components/wysiwyg'; 
-
-// layout
-@import 'layout/base'; 
-@import 'layout/main'; 
-@import 'layout/auth'; 
-
-// pages
-@import 'pages/home'; 
-@import 'pages/about'; 
-@import 'pages/library'; 
-@import 'pages/post'; 
-@import 'pages/question'; 
-@import 'pages/user'; 
+///**
+// * Main styles
+// *
+// * @copyright Intelact Solutions Ltd.
+// */
+//
+//// bootstrap
+//@import "bootswatch/dist/flatly/variables";
+//@import "bootstrap/scss/bootstrap";
+//@import "bootswatch/dist/flatly/bootstrap.min.css";
+// // third parties
+//@import 'animate.css';
+//@import 'ngx-sharebuttons/themes/default';
+//@import '@videogular/ngx-videogular/fonts/videogular.css';
+//
+//
+//// custom variables
+//$font-family-base: 'Open Sans';
+//$font-family-header: 'Open Sans';
+//$font-family-highlight: 'Open Sans';
+//$app-header-height: 96px;
+//$brand-height: 36px;
+//$spacer-thin: calc($spacer/2);
+//
+//// components
+//@import 'components/animations';
+//@import 'components/brand';
+//@import 'components/buttons';
+//@import 'components/card';
+//@import 'components/form';
+//@import 'components/modal';
+//@import 'components/nav';
+//@import 'components/notification';
+//@import 'components/preloader';
+//@import 'components/wysiwyg';
+//
+//// layout
+//@import 'layout/base';
+//@import 'layout/main';
+//@import 'layout/auth';
+//
+//// pages
+//@import 'pages/home';
+//@import 'pages/about';
+//@import 'pages/library';
+//@import 'pages/post';
+//@import 'pages/question';
+//@import 'pages/user';

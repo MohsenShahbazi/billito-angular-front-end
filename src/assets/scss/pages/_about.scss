@@ -1,42 +1,42 @@
-.img-in-content {
-	max-width: 480px;
-}
-
-.clip-path-circle {
-	clip-path: circle();
-	float: left;
-	shape-outside: circle(38%);
-	transform: translate(-20%);
-}
-
-.clip-path-ellipse {
-	clip-path: ellipse();
-	float: right;
-	shape-outside: ellipse(40%);
-	transform: translate(5%);
-}
-
-.clip-path-polygon {
-	float: left;
-	clip-path: polygon(52% 1.4%, 5% 0, 5% 195px, 50% 95%, 65% 79%);
-	shape-outside: polygon(52% 1.4%, 5% 0, 5% 195px, 50% 95%, 65% 79%);
-	transform: translate(-5%);
-	max-width: 600px;
-}
-
-.bg-contact {
-	background: url('/assets/images/contact.svg') no-repeat center;
-	background-size: contain;
-	max-height: 24rem;
-	position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-}
-
-@include media-breakpoint-down(lg) {
-
-	.img-in-content {
-		display: none;
-	}
-}
+//.img-in-content {
+//	max-width: 480px;
+//}
+//
+//.clip-path-circle {
+//	clip-path: circle();
+//	float: left;
+//	shape-outside: circle(38%);
+//	transform: translate(-20%);
+//}
+//
+//.clip-path-ellipse {
+//	clip-path: ellipse();
+//	float: right;
+//	shape-outside: ellipse(40%);
+//	transform: translate(5%);
+//}
+//
+//.clip-path-polygon {
+//	float: left;
+//	clip-path: polygon(52% 1.4%, 5% 0, 5% 195px, 50% 95%, 65% 79%);
+//	shape-outside: polygon(52% 1.4%, 5% 0, 5% 195px, 50% 95%, 65% 79%);
+//	transform: translate(-5%);
+//	max-width: 600px;
+//}
+//
+//.bg-contact {
+//	background: url('/assets/images/contact.svg') no-repeat center;
+//	background-size: contain;
+//	max-height: 24rem;
+//	position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    transform: translate(-50%, -50%);
+//}
+//
+//@include media-breakpoint-down(lg) {
+//
+//	.img-in-content {
+//		display: none;
+//	}
+//}

@@ -1,55 +1,55 @@
-.modal-question-ask {
-
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: auto;
-	right: 0;
-	width: 50%;
-
-	.modal-content::before {
-		position: absolute;
-		content: "";
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: 
-			radial-gradient(circle at top,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
-			radial-gradient(circle at bottom,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
-			radial-gradient(circle at left,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
-			radial-gradient(circle at right,transparent 60%, #000000 61%,#000000 66%, transparent 67%);
-		background-size: 3em 3em;
-		background-color: var(--bs-white);
-		opacity: 0.05;
-	}
-
-	.modal-header,
-	.modal-body,
-	.modal-footer {
-		background-color: transparent;
-		border: 0 !important;
-	}
-}
-
-.question-comments {
-	width: 75%;
-	margin: auto;
-}
-
-@include media-breakpoint-between(md, xl) {
-	.modal-question-ask {
-		width: 75%;
-	}
-}
-
-@include media-breakpoint-down(md) {
-
-	.modal-question-ask {
-		width: 100%;
-	}
-
-	.question-comments {
-		width: 100%;
-	}
-}
+//.modal-question-ask {
+//
+//	position: fixed;
+//	top: 0;
+//	bottom: 0;
+//	left: auto;
+//	right: 0;
+//	width: 50%;
+//
+//	.modal-content::before {
+//		position: absolute;
+//		content: "";
+//		top: 0;
+//		bottom: 0;
+//		left: 0;
+//		right: 0;
+//		background:
+//			radial-gradient(circle at top,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
+//			radial-gradient(circle at bottom,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
+//			radial-gradient(circle at left,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
+//			radial-gradient(circle at right,transparent 60%, #000000 61%,#000000 66%, transparent 67%);
+//		background-size: 3em 3em;
+//		background-color: var(--bs-white);
+//		opacity: 0.05;
+//	}
+//
+//	.modal-header,
+//	.modal-body,
+//	.modal-footer {
+//		background-color: transparent;
+//		border: 0 !important;
+//	}
+//}
+//
+//.question-comments {
+//	width: 75%;
+//	margin: auto;
+//}
+//
+//@include media-breakpoint-between(md, xl) {
+//	.modal-question-ask {
+//		width: 75%;
+//	}
+//}
+//
+//@include media-breakpoint-down(md) {
+//
+//	.modal-question-ask {
+//		width: 100%;
+//	}
+//
+//	.question-comments {
+//		width: 100%;
+//	}
+//}
