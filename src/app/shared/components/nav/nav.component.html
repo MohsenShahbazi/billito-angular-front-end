@@ -1,0 +1,53 @@
+<nav *ngIf="data" [attr.data-cy]="name" class="navbar-nav" [ngClass]="name">
+	<ng-container *ngFor="let item of data">
+		<a
+			*ngIf="item.url"
+			class="nav-link"
+			[routerLink]="item.url"
+			routerLinkActive="active"
+			[class.active]="item.active"
+			[attr.id]="item.id"
+			[attr.data-cy]="item.id"
+			[attr.title]="item.title"
+			(click)="click(item)"
+		>
+			<fa-icon *ngIf="showIcon && item.icon" [icon]="item.icon"></fa-icon>
+			<fa-icon
+				*ngIf="showIcon && item.iconName"
+				[icon]="['fab', item.iconName]"
+			></fa-icon>
+			<span *ngIf="showTitle && item.title">{{ item.title | translate }}</span>
+		</a>
+		<a
+			*ngIf="item.href"
+			class="nav-link"
+			target="_blank"
+			[href]="item.href"
+			[class.active]="item.active"
+			[attr.id]="item.id"
+			[attr.data-cy]="item.id"
+			[attr.title]="item.title"
+			(click)="click(item)"
+		>
+			<fa-icon *ngIf="showIcon && item.icon" [icon]="item.icon"></fa-icon>
+			<span *ngIf="showTitle && item.title">{{ item.title | translate }}</span>
+		</a>
+		<button
+			*ngIf="!item.url && !item.href"
+			class="nav-link"
+			[class.active]="item.active"
+			[attr.id]="item.id"
+			[attr.data-cy]="item.id"
+			(click)="click(item)"
+			[attr.title]="item.title"
+			(click)="click(item)"
+		>
+			<fa-icon *ngIf="showIcon && item.icon" [icon]="item.icon"></fa-icon>
+			<fa-icon
+				*ngIf="showIcon && item.iconName"
+				[icon]="['fab', item.iconName]"
+			></fa-icon>
+			<span *ngIf="showTitle && item.title">{{ item.title | translate }}</span>
+		</button>
+	</ng-container>
+</nav>

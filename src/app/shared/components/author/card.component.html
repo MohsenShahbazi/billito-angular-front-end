@@ -1,0 +1,11 @@
+<ng-container *ngIf="author">
+	<img *ngIf="author.image" [src]="author.image | safe: 'resourceUrl'" />
+	<div class="d-flex flex-column align-center">
+		<b>{{ author.name }}</b>
+		<small class="text-secondary" *ngIf="title">{{ title }}</small>
+	</div>
+	<button disabled *ngIf="showTotalArticles" class="btn btn-sm btn-outline-secondary ms-auto">
+		{{ author.totalArticles }}
+		{{ (author.totalArticles > 1 ? 'indexManyArticles' : 'indexOneArticle') | translate }}
+	</button>
+</ng-container>

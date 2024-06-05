@@ -1,0 +1,17 @@
+<div [ngClass]="className">
+	<div class="read-more-content" [innerHTML]="content"></div>
+	<span
+		class="read-more-toggle"
+		*ngIf="showButtons && !isContentToggled"
+		(click)="toggleContent()"
+	>
+		{{ 'readMore' | translate }}
+	</span>
+	<span
+		class="read-more-toggle"
+		*ngIf="showButtons && isContentToggled"
+		(click)="toggleContent()"
+	>
+		{{ 'readMore' | translate }}
+	</span>
+</div>

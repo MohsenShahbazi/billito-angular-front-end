@@ -1,0 +1,22 @@
+<div *ngIf="type === types.Spinner" class="preloader preloader-spinner">
+	<span class="bar"></span>
+</div>
+<div *ngIf="type === types.Infinity" class="preloader preloader-infinity">
+	<span class="bar"></span>
+</div>
+<!-- card preloader -->
+<div *ngIf="type === types.Card" class="preloader preloader-card" [class.card-list]="list">
+	<div class="card">
+		<div class="card-image"></div>
+		<div class="card-body">
+			<div class="card-title"></div>
+			<div class="card-description"></div>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="type === types.CardImage" class="preloader preloader-card-image"></div>
+<div *ngIf="type === types.BarsSignal" class="preloader preloader-bars-signal"></div>
+<div *ngIf="type === types.Content" class="preloader preloader-content">
+	<div *ngFor="let i of size || 10 | fill"></div>
+</div>

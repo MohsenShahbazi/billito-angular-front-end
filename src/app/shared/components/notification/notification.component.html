@@ -1,0 +1,19 @@
+<div
+	class="notification py-3"
+	*ngIf="notification"
+	[ngClass]="'notification-context-' + notification.type"
+>
+	<div class="container">
+		<div class="d-flex flex-column">
+			<div *ngIf="notification.title" class="notification-title mb-1" role="alert">
+				{{ notification.title | translate }}
+			</div>
+			<div *ngIf="notification.message" class="d-flex align-items-center">
+				<p class="notification-message m-0">{{ notification.message | translate }}</p>
+				<a class="notification-dismiss btn ms-auto" (click)="close()">
+					<fa-icon icon="times" size="2x"></fa-icon>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

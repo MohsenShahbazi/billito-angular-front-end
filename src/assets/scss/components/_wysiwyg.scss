@@ -1,0 +1,168 @@
+
+.wysiwyg-content {
+
+	font-size: 100%;
+
+	.page-title {
+		margin-bottom: 4rem;
+		font-size: 3.2em;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, li, ol, dl, dt, blockquote {
+		font-family: $font-family-header;
+		line-height: 1.6;
+		font-style: normal;
+	}
+
+	h1 { 
+		font-size: 3em;
+		font-weight: 400;
+		margin-bottom: 3em;
+	}
+
+	h2 { 
+		font-size: 2.5em;
+		font-weight: 400;
+		margin-bottom: 2.5em;
+	}
+
+	h3 { 
+		font-size: 2em;
+		font-weight: 400;
+		margin-bottom: 2em;
+	}
+
+	h4 { 
+		font-size: 1.75em;
+		font-weight: 400;
+		margin-bottom: 1.5em;
+	}
+
+	h5 { 
+		font-size: 1.5em;
+		font-weight: 400;
+		margin-bottom: 1.5em;
+	}
+
+	h6 { 
+		font-size: 1.25em;
+		font-weight: 400;
+		margin-bottom: 1em;
+	}
+
+	p { 
+		font-size: 1.25em;
+		font-weight: 400;
+		margin-bottom: 1.5em;
+	}
+
+	ul, ol { 
+		margin-left: 3em;
+		padding-inline-start: 2em;
+	}
+	
+	li {
+		font-size: 1.25em;
+		margin-bottom: 1em;
+	}
+
+	li ul,
+	li ol {
+		margin-left: 0;
+	}
+
+	li ul li,
+	li ol li,
+	dl dt,
+	dl dd {
+		font-size: 1em;
+	}
+
+	blockquote {
+		margin-left: 3em;
+	}
+
+	blockquote,
+	blockquote p {
+		font-size: 1.25em;
+		font-style: italic;
+		line-height: 1.5rem;
+		font-weight: 300;
+	}
+
+	address {
+		font-size: 1.25em;
+	}
+
+	table th,
+	table td {
+		font-size: 1em;
+	}
+
+	b, strong { font-weight: 600; }
+
+	img, svg {
+		max-width: 100%;
+		height: auto;
+		margin: 1rem auto;
+	}
+
+	hr {
+		margin: 2rem 0;
+		color: var(--bs-secondary)
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	.wysiwyg-content {
+		font-size: 80%;
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.wysiwyg-content {
+
+		font-size: 70%;
+
+		blockquote {
+			margin-left: 2em;
+			font-size: 1em;
+		}
+
+		dl dt,
+		dl dd {
+			font-size: 1.25em;
+		}
+
+		table th,
+		table td {
+			font-size: 1.25em;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.wysiwyg-content {
+
+		font-size: 60%;
+
+		p { 
+			font-size: 1.5em;
+		}
+
+		blockquote {
+			margin-left: 2em;
+			font-size: 1.25em;
+		}
+
+		dl dt,
+		dl dd {
+			font-size: 1.25em;
+		}
+
+		table th,
+		table td {
+			font-size: 1.25em;
+		}
+	}
+}

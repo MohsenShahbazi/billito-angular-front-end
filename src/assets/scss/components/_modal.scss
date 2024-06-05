@@ -1,0 +1,78 @@
+/**
+* Modals
+* 
+* @copyright Intelact Solutions Ltd.
+* @version 1.0
+*/
+
+@use 'sass:math';
+
+.backdrop-white {
+	background-color: var(--bs-white) !important;
+	opacity: 1 !important;
+}
+
+.modal-dialog .modal-content {
+
+	.btn-close:focus {
+		outline: 0 !important;
+		box-shadow: none !important;
+	}
+}
+
+.modal-dialog.dialog-remove .modal-content {
+
+	.modal-header {
+		color: var(--bs-white);
+		background-color: var(--bs-danger);
+	}
+
+	.btn-close {
+		filter: invert(100%);
+	}
+}
+
+.mobile-menu {
+	
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 100%;
+	max-height: 100%;
+
+	.modal-content {
+		background-color: transparent;
+	}
+}
+
+.mobile-menu::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: 
+		radial-gradient(circle at top,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
+		radial-gradient(circle at bottom,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
+		radial-gradient(circle at left,transparent 60%, #000000 61%,#000000 66%, transparent 67%),
+		radial-gradient(circle at right,transparent 60%, #000000 61%,#000000 66%, transparent 67%);
+	background-size: 3em 3em;
+	background-color: var(--bs-white);
+	opacity: 0.05;
+}
+
+share-content {
+
+	.img-placeholder {
+		width: 100%;
+		height: 20rem;
+		filter: drop-shadow(1px 1px 1px rgba(0,0,0,.15));
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-color: var(--bs-light);
+	}
+}

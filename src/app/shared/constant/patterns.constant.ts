@@ -1,0 +1,9 @@
+export const PERSIAN_CHAR = /[^0-9آ-ی]+$/g;
+export const persian= /[^0-9آ-ی]+$/g;
+//export const number= /[^0-9]+$/g;
+export const number= '^[0-9]';
+export const english= /[^0-9a-zA-Z]+$/g;
+export const justPersian= /[^آ-ی]+$/g;
+export const percentage= /[0-9]*\.?[0-9]+%/;
+export const justNumber= /[^0-9]+$/g;
+export const phoneNumber=/^[0][9][0-9][0-9]{8,8}$/;

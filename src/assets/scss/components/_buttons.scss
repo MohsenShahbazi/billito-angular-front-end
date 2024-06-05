@@ -1,0 +1,154 @@
+
+.btn {
+	border-radius: 1.6rem;
+}
+
+.btn-round {
+
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 50%;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	color: var(--bs-secondary);
+	border-color: var(--bs-gray-400);
+	background-color: var(--bs-white);
+
+	img {
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+	}
+
+	fa-icon {
+		font-size: 1.2rem;
+	}
+
+	&-lg {
+
+		width: 4rem;
+		height: 4rem;
+
+		img {
+			width: 4rem;
+			height: 4rem;
+		}
+
+		fa-icon {
+			font-size: 2rem;
+		}
+	}
+}
+
+.btn-round-outline {
+	background-color: transparent;
+}
+
+.btn-user-avatar {
+
+	width: 4rem;
+	height: 4rem;
+	line-height: 1;
+	padding: 1rem;
+	text-align: center;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 50%;
+
+	img {
+		width: 48px;
+		height: auto;
+	}
+
+	fa-icon {
+		font-size: 2rem;
+		display: block;
+	}
+}
+
+.btn-share {
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	outline: none !important;
+	background-color: transparent !important;
+	border: 0 !important;
+	margin: 0;
+	padding: 0;
+	min-width: 4.5rem;
+
+	fa-icon {
+		width: 3rem;
+		height: 3rem;
+		border: 2px;
+		border-style: solid;
+		border-radius: 50%;
+		border-color: rgba(255,255,255,.25);
+		background-color: rgba(255,255,255,.05);
+		color: var(--bs-secondary);
+		font-size: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+	}
+
+	label {
+		font-size: .8rem;
+		text-align: center;
+		color: rgba(255,255,255,.5);
+		margin-top: .5rem;
+		filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+	}
+}
+
+.btn-share.active {
+	fa-icon {  
+		border-color: var(--bs-white);
+		color: var(--bs-white);
+	}
+}
+
+.btn-share:disabled {
+
+	fa-icon { 
+		border-color: rgba(255,255,255,.20);
+		background-color: transparent;
+		color: rgba(255,255,255,.4)
+	}
+
+	label {
+		color: rgba(255,255,255,.5);
+	}
+}
+
+.btn-share-bookmark.active {
+	fa-icon {  
+		border-color: var(--bs-info);
+		color: var(--bs-info);
+	}
+}
+
+.btn-share-like.active {
+	fa-icon {  
+		border-color: var(--bs-danger);
+		color: var(--bs-danger);
+	}
+}
+
+.btn-share-share.active {
+	fa-icon {  
+		border-color: var(--bs-success);
+		color: var(--bs-success);
+	}
+}

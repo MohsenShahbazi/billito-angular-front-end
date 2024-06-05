@@ -1,0 +1,123 @@
+<div id="srolltop"></div>
+<header class="bg-white">
+	<div class="container h-100 py-0">
+		<nav class="navbar navbar-expand-lg m-0 p-0 h-100">
+			<brand class="me-lg-5"></brand>
+			<app-nav
+				[data]="mainMenu"
+				name="nav-main-menu"
+				class="me-auto d-none d-lg-flex"
+			></app-nav>
+			<div class="d-flex align-items-center">
+				<button
+					*ngIf="name === 'home'"
+					id="btn-search"
+					data-cy="btn-search"
+					class="btn-round me-2 d-flex d-lg-none"
+					(click)="openMobileSearch(mobileSearch)"
+				>
+					<fa-icon icon="magnifying-glass"></fa-icon>
+				</button>
+				<button
+					id="btn-mobile-menu"
+					data-cy="btn-mobile"
+					class="btn-round me-2 d-flex d-lg-none"
+					(click)="openMobileMenu(mobileMenu)"
+				>
+					<fa-icon icon="bars"></fa-icon>
+				</button>
+				<search
+					*ngIf="name === 'home'"
+					id="global-search"
+					data-cy="global-search"
+					[term]="data?.search"
+					class="d-none d-lg-flex me-4"
+					(onSubmit)="search($event)"
+					(onReset)="search()"
+				></search>
+				<!-- user profile -->
+				<a
+					routerLink="/user"
+					id="btn-user-profile"
+					data-cy="btn-user-profile"
+					class="btn-round btn-round-lg"
+				>
+					<img *ngIf="(auth$ | async) && user.image" [src]="user.image" />
+					<fa-icon *ngIf="!(auth$ | async) || !user?.image" icon="user"></fa-icon>
+				</a>
+			</div>
+		</nav>
+	</div>
+</header>
+<main [ngClass]="'page-' + name">
+	<ng-content></ng-content>
+</main>
+<footer class="py-5">
+	<div class="container-fluid container-lg pt-5">
+		<div class="row">
+			<div class="col-12 col-lg-5">
+				<!-- brand -->
+				<div class="d-flex justify-content-center justify-content-lg-start">
+					<brand class="brand-lg" [slogan]="brand?.slogan"></brand>
+				</div>
+			</div>
+			<div class="col-12 col-lg-7">
+				<!-- nav: platforms -->
+				<div class="d-flex justify-content-center justify-content-lg-end">
+					<app-nav
+						name="nav-platforms"
+						[data]="platformLinks"
+						[showTitle]="false"
+						class="py-4 py-lg-0"
+					></app-nav>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<!-- nav: legal documents -->
+				<div class="d-flex justify-content-center justify-content-lg-start">
+					<app-nav
+						name="nav-legal"
+						[data]="legalLinks"
+						class="pt-2 pt-lg-5"
+					></app-nav>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6">
+				<!-- nav: about links -->
+				<div class="d-flex justify-content-center justify-content-lg-end">
+					<app-nav name="nav-about" [data]="aboutMenu" class="pt-0 pt-lg-5"></app-nav>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<!-- copyright -->
+				<div
+					class="d-flex justify-content-center justify-content-lg-start pt-4 pt-lg-0"
+				>
+					<p class="copyright">
+						{{ 'copyright' | translate: { year: copyrightYear } }}
+					</p>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6">
+				<!-- copyright -->
+				<div class="d-flex justify-content-center justify-content-lg-end pt-2 pt-lg-0">
+					<a class="copyright" href="https://oneblog.live" target="_blank"
+						>Powered by OneBlog</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<ng-template #mobileMenu let-modal>
+	<button class="btn-close" (click)="modal.dismiss()"></button>
+	<app-nav [data]="mainMenu" name="nav-main-menu" (onClick)="modal.close()"></app-nav>
+</ng-template>
+<ng-template #mobileSearch let-modal>
+	<search [attr.data-cy]="'global-search'" (onSubmit)="search($event)"></search>
+	<button class="btn-close ms-4 px-3" (click)="modal.dismiss()"></button>
+</ng-template>

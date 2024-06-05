@@ -1,0 +1,83 @@
+<div class="card-header">
+	<div class="card-avatar btn-round btn-round-lg">
+		<img *ngIf="!private && image" [src]="image | safe: 'resourceUrl'" />
+		<fa-icon *ngIf="private || !image" icon="user"></fa-icon>
+	</div>
+	<div class="card-author d-flex flex-column flex-fill ms-3">
+		<span *ngIf="!private && author" class="author-name">{{ author }}</span>
+		<span *ngIf="private" class="author-name">{{ 'anonymous' | translate }}</span>
+		<small *ngIf="date" class="card-date">{{ date | dateAgo }}</small>
+	</div>
+	<div *ngIf="badge" class="ms-auto d-flex align-items-start">
+		<span
+			class="badge rounded-pill fw-light d-flex align-items-center"
+			[ngClass]="badge.value"
+			>{{ badge.title | translate }}</span
+		>
+	</div>
+</div>
+<div *ngIf="content" class="card-body">
+	<div *ngIf="title" class="card-title mb-3">{{ title }}</div>
+	<div
+		*ngIf="isHtml && content"
+		class="card-text wysiwyg-content"
+		[innerHTML]="content | safe: 'html'"
+	></div>
+	<div
+		*ngIf="!isHtml && content"
+		class="card-text"
+		[innerHtml]="content | striphtml | nl2br"
+	></div>
+	<div *ngIf="tags?.length" class="tags card-tags mt-3">
+		<i class="tag card-tag" *ngFor="let t of tags">{{ t }}</i>
+	</div>
+</div>
+<div *ngIf="bookmark || share || like || hit || reactions" class="card-footer">
+	<div class="card-action">
+		<button
+			*ngIf="bookmark"
+			class="btn btn-action question-bookmark"
+			[class.active]="bookmark.active"
+			[class.readonly]="bookmark.readonly"
+			(click)="doBookmark(); $event.stopPropagation()"
+		>
+			<fa-icon [icon]="bookmark.active ? bookmark.iconSelected : bookmark.icon"></fa-icon>
+			<span *ngIf="bookmark?.value > 0" class="ms-1">{{
+				bookmark.value | shortNumber
+			}}</span>
+		</button>
+		<button
+			*ngIf="like"
+			class="btn btn-action question-like"
+			[class.active]="like.active"
+			[class.readonly]="like.readonly"
+			(click)="doLike(); $event.stopPropagation()"
+		>
+			<fa-icon [icon]="like.active ? like.iconSelected : like.icon"></fa-icon>
+			<span *ngIf="like?.value > 0" class="ms-1">{{ like.value | shortNumber }}</span>
+		</button>
+		<button
+			*ngIf="share"
+			class="btn btn-action question-share"
+			[class.active]="share.active"
+			[class.readonly]="share.readonly"
+			(click)="doShare(); $event.stopPropagation()"
+		>
+			<fa-icon [icon]="share.active ? share.iconSelected : share.icon"></fa-icon>
+			<span *ngIf="share?.value > 0" class="ms-1">{{ share.value | shortNumber }}</span>
+		</button>
+	</div>
+	<div class="card-info ms-auto">
+		<button *ngIf="hit?.value > 0" class="btn btn-placeholder me-3" disabled>
+			<fa-icon [icon]="hit.icon"></fa-icon>
+			<span class="ms-1">{{ hit.value || 0 | shortNumber }}</span>
+		</button>
+		<button *ngIf="reactions" class="btn btn-placeholder">
+			<fa-icon
+				[icon]="reactions.active ? reactions.iconSelected : reactions.icon"
+				disabled
+			></fa-icon>
+			<span class="ms-1">{{ reactions.value || 0 | shortNumber }}</span>
+		</button>
+	</div>
+</div>

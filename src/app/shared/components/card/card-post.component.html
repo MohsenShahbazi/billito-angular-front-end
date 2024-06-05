@@ -1,0 +1,104 @@
+<div
+	class="card-image"
+	[ngStyle]="{
+		'background-image': image
+			? 'url(' + image + ')'
+			: 'url(' + 'assets/images/image.svg' + ')'
+	}"
+>
+	<!-- icon -->
+	<fa-icon *ngIf="icon && !svgIcon" [icon]="icon" class="card-icon"></fa-icon>
+	<img *ngIf="svgIcon" [src]="svgIcon" class="card-icon svg-icon" />
+	<!-- duration -->
+	<div *ngIf="duration" class="card-duration">
+		<fa-icon icon="clock"></fa-icon>
+		<span>{{ duration | duration }}</span>
+	</div>
+	<!-- date -->
+	<div *ngIf="date" class="card-date">{{ date | dateAgo }}</div>
+</div>
+<div class="card-body">
+	<!-- author -->
+	<h5 *ngIf="author" class="card-author card-truncated">
+		<span class="text-capitalize">{{ author }}</span>
+	</h5>
+	<!-- title -->
+	<h4 *ngIf="title" class="card-title">
+		<span>{{ title }}</span>
+	</h4>
+	<!-- description -->
+	<div *ngIf="description" class="card-description card-truncated">
+		<div class="text-capitalize" [innerHtml]="description | nl2br | safe: 'html'"></div>
+	</div>
+	<!-- tags -->
+	<div *ngIf="tags?.length" class="tags">
+		<i class="tag" *ngFor="let item of tags">{{ item }}</i>
+	</div>
+	<div *ngIf="showAction" class="card-action">
+		<!-- bookmark -->
+		<div
+			*ngIf="bookmark"
+			class="card-action-item action-bookmark"
+			[class.active]="bookmark.active"
+			[class.readonly]="bookmark.readonly"
+		>
+			<div class="card-badge" (click)="doBookmark(); $event.stopPropagation()">
+				<fa-icon
+					*ngIf="bookmark?.icon"
+					[icon]="bookmark.active ? bookmark.iconSelected : bookmark.icon"
+				></fa-icon>
+			</div>
+			<div *ngIf="bookmark?.value > 0" class="card-badge-index">
+				{{ bookmark.value | shortNumber }}
+			</div>
+		</div>
+		<!-- like -->
+		<div
+			*ngIf="like"
+			class="card-action-item action-like"
+			[class.active]="like.active"
+			[class.readonly]="like.readonly"
+		>
+			<div class="card-badge" (click)="doLike(); $event.stopPropagation()">
+				<fa-icon
+					*ngIf="like?.icon"
+					[icon]="like.active ? like.iconSelected : like.icon"
+				></fa-icon>
+			</div>
+			<div *ngIf="like?.value > 0" class="card-badge-index">
+				{{ like.value | shortNumber }}
+			</div>
+		</div>
+		<!-- share -->
+		<div
+			*ngIf="share"
+			class="card-action-item action-share"
+			[class.active]="share.active"
+			[class.readonly]="share.readonly"
+		>
+			<div class="card-badge" (click)="doShare(); $event.stopPropagation()">
+				<fa-icon
+					*ngIf="share?.icon"
+					[icon]="share.active ? share.iconSelected : share.icon"
+				></fa-icon>
+			</div>
+			<div *ngIf="share?.value > 0" class="card-badge-index">
+				{{ share.value | shortNumber }}
+			</div>
+		</div>
+		<!-- visits -->
+		<div
+			*ngIf="hit?.value > 0"
+			class="card-action-item action-visit readonly"
+			[class.active]="hit.active"
+		>
+			<div class="card-badge">
+				<fa-icon
+					*ngIf="hit?.icon"
+					[icon]="hit.active ? hit.iconSelected : hit.icon"
+				></fa-icon>
+			</div>
+			<div class="card-badge-index">{{ hit.value | shortNumber }}</div>
+		</div>
+	</div>
+</div>

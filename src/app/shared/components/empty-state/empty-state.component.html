@@ -1,0 +1,26 @@
+<div
+	class="d-flex align-items-center justify-content-center flex-column p-5"
+	role="alert"
+	[ngClass]="className"
+>
+	<img
+		*ngIf="image"
+		[src]="image"
+		style="max-width: 20rem; height: auto"
+		class="mx-auto my-5"
+	/>
+	<h3 *ngIf="title" class="text-center w-75">{{ title | translate }}</h3>
+	<p
+		*ngIf="message"
+		class="my-5 lead text-center w-50"
+		[innerHtml]="message | translate | nl2br"
+	></p>
+	<a
+		*ngIf="url"
+		class="btn btn-outline-success mt-4"
+		[routerLink]="url"
+		[fragment]="fragment"
+	>
+		{{ label || 'goto' | translate }}
+	</a>
+</div>

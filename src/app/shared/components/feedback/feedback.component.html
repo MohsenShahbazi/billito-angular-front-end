@@ -1,0 +1,100 @@
+<div *ngIf="title || closable" class="modal-header">
+	<h6 *ngIf="title" class="modal-title" id="modal-basic-title">{{ title | translate }}</h6>
+	<button
+		*ngIf="closable"
+		type="button"
+		class="btn-close"
+		(click)="activeModal.close()"
+	></button>
+</div>
+<section class="modal-body">
+	<ng-container *ngIf="question">
+		<!-- question -->
+		<div *ngIf="!completed" class="feedback-question w-100 p-5 mx-auto" #target>
+			<!-- question index -->
+			<small class="d-block text-secondary">
+				{{
+					'feedbackCurrentIndex' | translate: { current: step + 1, total: totalSteps }
+				}}
+			</small>
+			<!-- question -->
+			<p class="lead mt-1 my-5 fw-medium">
+				{{ question.question }}
+			</p>
+			<!-- question options -->
+			<check-control
+				class="mb-3"
+				*ngFor="let item of question.options"
+				[type]="question.multiple ? 'checkbox' : 'radio'"
+				[label]="item.content"
+				[selected]="item.isSelected"
+				(onChange)="select(item)"
+			></check-control>
+		</div>
+
+		<!-- no selections alert -->
+		<ngb-alert
+			*ngIf="noSelections"
+			type="danger"
+			(closed)="noSelections = false"
+			class="w-75 mx-auto"
+		>
+			<small>{{ 'feedbackNoSelections' | translate }}</small>
+		</ngb-alert>
+
+		<!-- navigation -->
+		<div
+			*ngIf="!completed"
+			class="d-flex flex-row align-items-center justify-content-center py-5"
+		>
+			<button
+				*ngIf="step > 0"
+				type="button"
+				class="btn btn-lg btn-secondary py-1 px-5 mx-3"
+				(click)="prev()"
+			>
+				{{ 'feedbackPrevious' | translate }}
+			</button>
+			<button
+				*ngIf="step < totalSteps - 1"
+				type="button"
+				class="btn btn-lg btn-secondary py-1 px-5 mx-3"
+				(click)="next()"
+			>
+				{{ 'feedbackNext' | translate }}
+			</button>
+			<button
+				*ngIf="step == totalSteps - 1"
+				type="button"
+				class="btn btn-lg btn-primary py-1 px-5 mx-3"
+				(click)="complete()"
+			>
+				{{ 'feedbackSubmit' | translate }}
+			</button>
+		</div>
+
+		<!-- feedback completed -->
+		<div
+			*ngIf="completed"
+			class="survey-thank-you d-flex flex-column align-items-center justify-content-center w-75 mx-auto py-5 animate__zoomInUp"
+		>
+			<img
+				src="/assets/images/feedback.svg"
+				style="max-width: 10rem"
+				class="mb-5 mx-auto"
+			/>
+			<h1 class="mb-3">{{ 'feedbackThankYouTitle' | translate }}</h1>
+			<p class="lead" [innerHTML]="'feedbackThankYouDescription' | translate | nl2br"></p>
+		</div>
+	</ng-container>
+
+	<!-- no feedback -->
+	<div
+		*ngIf="!question"
+		class="survey-thank-you d-flex flex-column align-items-center justify-content-center w-75 mx-auto py-5 animate__zoomInUp"
+	>
+		<img src="/assets/images/feedback.svg" style="max-width: 10rem" class="mb-5 mx-auto" />
+		<h1 class="mb-2">{{ 'feedbackNotAvailableTitle' | translate }}</h1>
+		<p class="lead">{{ 'feedbackNotAvailableDescription' | translate }}</p>
+	</div>
+</section>

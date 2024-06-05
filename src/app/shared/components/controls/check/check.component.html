@@ -1,0 +1,17 @@
+<label
+	class="control"
+	[class.control--checkbox]="type === 'checkbox'"
+	[class.control--radio]="type === 'radio'"
+	[class.disabled]="disabled"
+	[class.selected]="selected"
+>
+	<span class="label">{{ label }}</span>
+	<input
+		[name]="name"
+		[type]="type"
+		[checked]="selected"
+		(change)="change()"
+		[disabled]="disabled"
+	/>
+	<div class="control__indicator"></div>
+</label>

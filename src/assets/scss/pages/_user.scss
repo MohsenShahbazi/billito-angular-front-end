@@ -1,0 +1,46 @@
+.user-avatar {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	text-align: center;
+	border-radius: 50%;
+	background-color: var(--bs-white);
+	border: 1px solid rgba(0,0,0,.25);
+
+	fa-icon {
+		font-size: 4rem;
+	}
+
+	img {
+		width: 8rem;
+		height: auto;
+	}
+}
+
+.card-user-profile {
+
+	border: 0;
+	background-color: rgba(0,0,0,.05);
+
+	.user-avatar {
+		width: 8rem;
+		height: 8rem;
+	}
+
+	fa-icon {
+		font-size: 4rem;
+	}
+
+	img {
+		width: 4rem;
+		height: auto;
+	}
+}
+
+.delete-account {
+	background-color: rgba(0,0,0,.1);
+	border-radius: var(--bs-border-radius);
+}
+

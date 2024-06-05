@@ -1,0 +1,64 @@
+<div class="modal-header">
+	<h6 class="modal-title" id="modal-basic-title">{{ 'share' | translate }}</h6>
+	<button type="button" class="btn-close" (click)="activeModal.close()"></button>
+</div>
+<div class="modal-body">
+	<div
+		*ngIf="image"
+		class="img-placeholder mb-4 rounded-1"
+		[ngStyle]="{ 'background-image': 'url(' + image + ')' }"
+	></div>
+	<h4 *ngIf="title" class="mb-4">{{ title }}</h4>
+	<p *ngIf="description" class="lead">{{ description | truncate: 240 }}</p>
+</div>
+<div class="modal-footer d-flex justify-content-center">
+	<div class="d-flex align-center">
+		<share-button
+			button="facebook"
+			[url]="url"
+			[image]="image"
+			[title]="title"
+			[description]="description"
+			[showText]="false"
+			(opened)="opened('facebook')"
+			(closed)="closed()"
+		></share-button>
+		<share-button
+			button="twitter"
+			[url]="url"
+			[image]="image"
+			[title]="title"
+			[description]="description | truncate: 160"
+			[showText]="false"
+			(opened)="opened('twitter')"
+			(closed)="closed()"
+		></share-button>
+		<share-button
+			button="linkedin"
+			[url]="url"
+			[image]="image"
+			[title]="title"
+			[description]="description"
+			[showText]="false"
+			(opened)="opened('linkedin')"
+			(closed)="closed()"
+		></share-button>
+		<share-button
+			button="whatsapp"
+			[url]="url"
+			[image]="image"
+			[title]="title"
+			[description]="description"
+			[showText]="false"
+			(opened)="opened('whatsapp')"
+			(closed)="closed()"
+		></share-button>
+		<share-button
+			button="copy"
+			[url]="url"
+			[text]="'copyLink' | translate"
+			[showText]="true"
+			(click)="opened('copy')"
+		></share-button>
+	</div>
+</div>

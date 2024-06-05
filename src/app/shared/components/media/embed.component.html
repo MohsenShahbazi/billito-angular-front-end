@@ -1,0 +1,23 @@
+<div *ngIf="url; else thumbContainer" class="iframe-container">
+	<iframe
+		[src]="url | safe: 'resourceUrl'"
+		title="{{ title }}"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		webkitallowfullscreen
+		mozallowfullscreen
+		allowfullscreen
+	>
+	</iframe>
+</div>
+<ng-template #thumbContainer>
+	<div
+		class="thumb-container"
+		[class.animation-trio-colors1]="!thumbUrl"
+		[ngStyle]="{
+			'background-image': thumbUrl
+				? 'url(' + thumbUrl + ')'
+				: 'url(' + 'assets/icons/play.svg' + ')'
+		}"
+	></div>
+</ng-template>

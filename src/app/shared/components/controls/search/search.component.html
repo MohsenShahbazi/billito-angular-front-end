@@ -1,0 +1,21 @@
+<input
+	type="search"
+	role="search"
+	autocomplete="off"
+	[placeholder]="placeholder"
+	[(ngModel)]="term"
+	(keyup)="onKeyUp($event)"
+	[class.active]="term?.length > 0"
+/>
+<fa-icon
+	class="btn-search-reset"
+	*ngIf="term?.length > 0"
+	icon="times"
+	(click)="reset()"
+></fa-icon>
+<fa-icon
+	class="btn-search-submit"
+	*ngIf="!term"
+	icon="magnifying-glass"
+	(click)="search()"
+></fa-icon>

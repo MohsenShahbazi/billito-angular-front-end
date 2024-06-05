@@ -1,0 +1,26 @@
+<div
+	*ngIf="showAllways || totalPages > 1"
+	class="d-flex align-items-center justify-content-center w-100"
+>
+	<ng-container *ngIf="apperance === 'simply'">
+		<fa-icon
+			class="d-cursor-pointer text-info fw-bold"
+			icon="chevron-left"
+			(click)="previous()"
+			[class.text-body-tertiary]="currentPage === 1"
+		></fa-icon>
+		<small *ngIf="label" class="mx-4">
+			{{
+				label
+					| translate: { currentPage: this.currentPage, totalPages: this.totalPages }
+			}}
+		</small>
+		<ng-content></ng-content>
+		<fa-icon
+			class="d-cursor-pointer text-info fw-bold"
+			icon="chevron-right"
+			(click)="next()"
+			[class.text-body-tertiary]="currentPage === totalPages"
+		></fa-icon>
+	</ng-container>
+</div>

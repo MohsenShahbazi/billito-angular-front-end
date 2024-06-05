@@ -1,0 +1,56 @@
+brand {
+
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: flex-start;
+
+	img {
+		width: auto;
+		height: 36px;
+	}
+
+	&.brand-lg img {
+		height: 48px;
+	}
+
+	&.brand-xl img {
+		height: 64px;
+	}
+
+	.brand-slogan {
+		display: flex;
+		align-items: center;
+		position: relative;
+		font-size: 1.25rem;
+		line-height: 1;
+		padding: 0 0 0 1rem;
+		margin: 0 0 0 1rem;
+		white-space: nowrap;
+	}
+
+	.brand-slogan::before {
+		position: absolute;
+		left: 0;
+		content: "";
+		width: 2px;
+		height: 100%;
+		background-color: rgba(255,255,255,0.25);
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	brand {
+		flex-direction: column;
+
+		.brand-slogan {
+			padding-left: 0;
+			margin-left: 0;
+			margin-top: 1rem;
+		}
+
+		.brand-slogan::before {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,98 @@
+/**
+ * Fadet gradient three colors 
+ */
+.animation-trio-colors {
+
+	background: linear-gradient(135deg, #FC415A, #591BC5, #131a58);
+	background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
+	position: absolute;
+	top: 0; 
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	z-index: -1;
+}
+
+/**
+ * Floating rotated icons
+ */
+.floating-icons {
+
+	.item {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border: solid 1px rgba(255,255,255,.5);
+		transform-origin: top left;
+		transform: scale(0) rotate(0deg) translate(-50%, -50%);
+		animation: Cube 12s ease-in forwards infinite;
+		z-index: inherit;
+	}
+
+	/*
+	.item:nth-child(2n) {
+		border-color: rgba(255,255,255,.5);
+	}
+	
+	.item:nth-child(2) {
+		animation-delay: 2s;
+		left: 25vw;
+		top: 40vh;
+	}
+	.item:nth-child(3) {
+		animation-delay: 4s;
+		left: 50vw;
+		top: 50vh;
+	}
+	.item:nth-child(4) {
+		animation-delay: 6s;
+		left: 20vw;
+		top: 20vh;
+	}
+	.item:nth-child(5) {
+		animation-delay: 8s;
+		left: 10vw;
+		top: 85vh;
+	}
+	.item:nth-child(6) {
+		animation-delay: 10s;
+		left: 50vw;
+		top: 10vh;
+	}*/
+
+	.bg-icon::before {
+		font-size: 8px;
+		left: 0;
+		top: 0;
+		color: rgba(255,255,255,.5);
+	}
+
+	.mat-icon {
+		position: absolute;
+		width: 32px;
+		height: 32px;
+		top: 0;
+		left: auto;
+		font-size: 8px;
+		color: rgba(255,255,255,.5);
+	}
+}
+
+@keyframes Gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+@keyframes Cube {
+	from {
+		transform: scale(0) rotate(0deg) translate(-50%, -50%);
+		opacity: 1;
+	}
+	to {
+		transform: scale(20) rotate(960deg) translate(-50%, -50%);
+		opacity: 0;
+	}
+}

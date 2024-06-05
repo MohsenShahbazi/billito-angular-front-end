@@ -1,0 +1,163 @@
+.navbar-nav {
+	.nav-link {
+		white-space: nowrap;
+	}
+}
+
+/************************ main menu ************************/
+
+app-nav {
+	height: 100%;
+}
+
+.nav-main-menu {
+	
+	height: 100%;
+	align-items: center;
+	
+	.nav-link {
+		font-size: $font-size-lg;
+		font-family: $font-family-header;
+		font-weight: 400;
+		margin: 0 1rem;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		border-width: 0 0 .25rem 0;
+		border-style: solid;
+		border-color: transparent;
+		color: var(--bs-black);
+	}
+
+	.nav-link:active,
+	.nav-link.active {
+		font-weight: 500;
+		color: var(--bs-primary);
+		border-bottom-color: var(--bs-primary);
+	}
+}
+
+.mobile-menu {
+
+	.btn-close {
+		position: fixed;
+		top: 4rem;
+		right: 4rem;
+		font-size: 2rem;
+		outline: none !important;
+	}
+
+	.modal-content {
+		border: 0;
+		border-radius: 0;
+	}
+
+	.nav-main-menu {
+		.nav-link {
+			text-align: center;
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+/************************ legal menu ***********************/
+
+.nav-legal,
+.nav-about {
+
+	display: flex;
+	flex-direction: row;
+
+	.nav-link {
+		display: flex;
+		font-size: 90%;
+	}
+
+	.nav-link::after {
+		content: " | ";
+		margin: 0 .5rem;
+		display: inline-block;
+	}
+
+	.nav-link:last-child::after {
+		display: none;
+	}
+}
+
+.nav-about .nav-link.active {
+	color: var(--bs-white) !important;
+}
+
+@include media-breakpoint-down(sm) {
+	
+	.nav-legal,
+	.nav-about {
+
+		flex-direction: column;
+
+		.nav-link {
+			display: flex;
+			justify-content: center;
+			padding: .25rem 0;
+		}
+	
+		.nav-link::after {
+			display: none !important;
+		}
+	}
+}
+
+/********************** plaforms menu **********************/
+
+.nav-platforms {
+
+	display: flex;
+	flex-direction: row;
+
+	.nav-link {
+		font-weight: 600;
+		color: var(--bs-black);
+		background-color: rgba(var(--bs-light-rgb), .5)
+	}
+
+	a {
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+		padding: 0;
+		text-align: center;
+		border-radius: 50%;
+
+		fa-icon {
+			font-size: 1.5rem;
+			display: block;
+		}
+	}
+
+	a + a {
+		margin-left: ($spacer*2);
+	}
+}
+
+/**
+ * Brand setting coloring.
+ */
+
+#LINK_PLAY_STORE_URL { color: #039107; }
+#LINK_APPLE_STORE_URL { color: #0976b4; }
+#SOCIAL_FACEBOOK_URL { color: #3b5998; }
+#SOCIAL_TWITTER_URL { color: #000; }
+#SOCIAL_INSTAGRAM_URL{ color: #ac35a4; }
+#SOCIAL_LINKEDIN_URL { color: #0976b4; }
+
+@include media-breakpoint-down(sm) {
+	.nav-platforms a {
+		width: 2rem;
+		height: 2rem;
+		line-height: 2rem;
+		fa-icon {
+			font-size: 1rem;
+		}
+	}
+}

@@ -1,0 +1,46 @@
+<div class="dropdown-wrapper" [ngClass]="context" [attr.id]="name" [attr.data-cy]="name">
+	<label *ngIf="label">{{ label | translate }}</label>
+	<div
+		ngbDropdown
+		#dropdown="ngbDropdown"
+		[dropdownClass]="dropdownClass"
+		[autoClose]="autoClose"
+		[placement]="placement"
+	>
+		<button ngbDropdownToggle>
+			<fa-icon *ngIf="icon" [icon]="icon"></fa-icon>
+			<div class="dropdown-placeholder">
+				<span *ngIf="placeholder" class="dropdown-caption text-truncate">
+					{{ placeholder | translate }}
+				</span>
+				<span *ngIf="showBadge && multiple && value?.length" class="dropdown-badge">
+					{{ value.length }}
+				</span>
+				<fa-icon
+					*ngIf="resetAll && multiple && value?.length"
+					icon="times"
+					class="ms-auto d-cursor-pointer"
+					(click)="reset(); dropdown.close(); $event.stopPropagation()"
+				></fa-icon>
+			</div>
+		</button>
+		<div ngbDropdownMenu class="dropdown-menu">
+			<button
+				ngbDropdownItem
+				*ngFor="let i of data"
+				(click)="change(i)"
+				[class.is-selected]="value?.length && value?.indexOf(i.value) > -1"
+			>
+				<fa-icon
+					*ngIf="multiple && value?.length > 0 && value?.indexOf(i.value) > -1"
+					icon="circle-check"
+				></fa-icon>
+				<fa-icon
+					*ngIf="multiple && (!value?.length || value?.indexOf(i.value) === -1)"
+					[icon]="['far', 'circle']"
+				></fa-icon>
+				<div class="dropdown-caption">{{ i.title }}</div>
+			</button>
+		</div>
+	</div>
+</div>
